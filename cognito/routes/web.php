@@ -36,7 +36,7 @@ Route::get('/oauth/callback', function (Request $request) {
 
     // Decode the response
     $decodedResponse = json_decode($response->body());
-    $accessToken = $decodedResponse->access_token ?? null;
+    $accessToken = $decodedResponse->access_token;
 
     // Make a GET request to the userInfo endpoint
     $userInfoResponse = Http::withHeaders([
